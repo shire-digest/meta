@@ -1,5 +1,8 @@
 # meta
 
+[![Build Status](https://travis-ci.org/shire-digest/meta.svg?branch=master)](https://travis-ci.org/shire-digest/meta)
+
+
 ;)
 
 ## License
