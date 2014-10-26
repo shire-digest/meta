@@ -6,18 +6,37 @@
 ## Pipeline
 
 ```
-                                                +--------------------------+                                                        
-                                                |                          |                                                        
-                                        site    |  crawler #1              |                                                        
-+-------------+          +-----------+          |                          |    post meta     +-------------+        +-------------+
-|             |          |           |  list    |  crawler #2              |                  |             |        |             |
-|  config.clj +----------+ producer  +----------+                          +------------------+ generator(s)+--------+  delivery   |
-|             |          |           |          |  crawler #3              |                  |             |        |             |
-+-------------+          +-----------+          |                          |                  +-------------+        +-------------+
-                                                |  crawler #4              |                                                        
-                                                |                          |                                                        
-                                                +--------------------------+                                                        
+                                            +------------------+                                                        
+                                            |                  |                                                        
+                                    site    |  crawler #1      |                                                        
++-------------+      +-----------+          |                  |    post meta     +-------------+        +-------------+
+|             |      |           |  list    |  crawler #2      |                  |             |        |             |
+|  config.clj +------+ producer  +----------+                  +------------------+ generator(s)+--------+  delivery   |
+|             |      |           |          |  crawler #3      |                  |             |        |             |
++-------------+      +-----------+          |                  |                  +-------------+        +-------------+
+                                            |  crawler #4      |                                                        
+                                            |                  |                                                        
+                                            +------------------+                                                        
 ```
+
+
+## Config.clj
+
+```clojure
+{:sites {"http://en.wikipedia.org" {:crawler en-tfa
+                                    :options {}}
+         ; Options is omittable.
+         "http://example.org" {:crawler echo}}
+
+ :generators {simple {:path "/var/temp/simple-output"}
+              mail {:receiver ["hbc@vtmer.com"]}
+              anothoer-generator {}}}
+```
+
+
+## TODO
+
+- [ ] use macros to improve `config.clj`'s readability.
 
 
 ## License
