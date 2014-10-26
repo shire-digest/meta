@@ -23,14 +23,14 @@
 ## Config.clj
 
 ```clojure
-{:sites {"http://en.wikipedia.org" {:crawler en-tfa
+{:sites {"http://en.wikipedia.org" {:crawler :en-tfa
                                     :options {}}
          ; Options is omittable.
-         "http://example.org" {:crawler echo}}
+         "http://example.org" {:crawler :echo}}
 
- :generators {simple {:path "/var/temp/simple-output"}
-              mail {:receiver ["hbc@vtmer.com"]}
-              anothoer-generator {}}}
+ :generators {:simple {:path "/var/temp/simple-output"}
+              :mail {:receiver ["hbc@vtmer.com"]}
+              :anothoer-generator {}}}
 ```
 
 
